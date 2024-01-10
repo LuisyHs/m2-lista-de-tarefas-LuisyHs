@@ -31,6 +31,7 @@ h2 {
     margin-right: 10%;
 }
 
+
 .header__container{
     display: flex;
     flex-direction: row;
@@ -111,7 +112,7 @@ margin-right: 10%;
     flex-direction: column;
     flex-wrap: wrap;
     width: 70%;
-    height: 400px;
+    height: auto;
     background-color: white;
     margin-left: 15%;
     margin-right: 15%;
@@ -128,4 +129,18 @@ margin-right: 10%;
 .tasks__list .task__item{
     display: flex;
     flex-direction: row;
+    background-color: #ebebeb;
+    margin-bottom: 30px;
+    padding-left: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.task__item .task-info__container p{
+    font-size: 20px;
+    line-height: 36px;
+}
+
+.span-normal{
+
 }
