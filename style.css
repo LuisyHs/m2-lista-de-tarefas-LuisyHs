@@ -137,10 +137,19 @@ margin-right: 10%;
 
 
 .task__item .task-info__container{
-    font-size: 25px;
+    display: inline-block;
+    font-size: 22px;
     line-height: 36px;
     width: 97%;
 }
+
+.task-type {
+    content: "\2022";
+    font-size: 120px;
+    color: red;
+}
+
+  
 
 .task__button--remove-task{
     display: flex;
