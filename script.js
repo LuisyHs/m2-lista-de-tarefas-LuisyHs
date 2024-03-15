@@ -13,35 +13,35 @@ const tasks = [
 
 function renderElements(array){
   const elementUl = document.createElement("ul");
-
+  const i;
+  for(i=0; i<=array.length ; i++){
+    
+  }
 }
 
 function createTaskItem(title,type){
-  const contador = title.length;
-  while(contador>=0){
-    const elementTaskLi[contador] = document.createElement("li");
-    const elementTaskDiv[contador] = document.createElement("div");
-    const elementTaskSpan[contador] = document.createElement("span");
-    const elementTaskP[contador] = document.createElement("p");
-    elementTaskP[contador].innerText = title; 
-    const elementTaskButton[contador] = document.createElement("button");
+    const elementTaskLi = document.createElement("li");
+    const elementTaskDiv = document.createElement("div");
+    const elementTaskSpan = document.createElement("span");
+    const elementTaskP = document.createElement("p");
+    elementTaskP.innerText = title; 
+    const elementTaskButton = document.createElement("button");
     
-    elementTaskLi[contador].appendChild(elementTaskDiv);
-    elementTaskDiv[contador].appendChild(elementTaskSpan);
-    elementTaskDiv[contador].appendChild(elementTaskP);
-    elementTaskLi[contador].appendChild(elementTaskButton);
+    elementTaskLi.appendChild(elementTaskDiv);
+    elementTaskDiv.appendChild(elementTaskSpan);
+    elementTaskDiv.appendChild(elementTaskP);
+    elementTaskLi.appendChild(elementTaskButton);
   
-    elementTaskLi[contador].classList.add("task__item");
+    elementTaskLi.classList.add("task__item");
     elementTaskDiv.classList.add("task-info__container");
-    elementTaskSpan[contador].classList.add("task-type");
-    if(type[contador]=="Normal"){
-      elementTaskSpan[contador].classList.add("span-normal")
-    }else if(type[contador]=="Importante"){
-      elementTaskSpan[contador].classList.add("span-important");
+    elementTaskSpan.classList.add("task-type");
+    if(type=="Normal"){
+      elementTaskSpan.classList.add("span-normal")
+    }else if(type=="Importante"){
+      elementTaskSpan.classList.add("span-important");
     }else{
-      elementTaskSpan[contador].classList.add("span-urgent")
+      elementTaskSpan.classList.add("span-urgent")
     }
-    elementTaskButton.classList.add("task__button--remove-task");
-
-  }
+     return elementTaskLi;
 }
+
