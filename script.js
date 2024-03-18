@@ -12,10 +12,12 @@ const tasks = [
 ];
 
 function renderElements(array){
-  const elementUl = document.createElement("ul");
+  const elementTaskUl = document.createElement("ul");
+  const listaLi;
   const i;
-  for(i=0; i<=array.length ; i++){
-    
+  for(i=0; i<array.length ; i++){
+    listaLi[i] = createTaskItem(array[i][0],array[i][0]);
+    elementTaskUl.appendChild(listaLi[i]);
   }
 }
 
@@ -40,7 +42,7 @@ function createTaskItem(title,type){
     }else if(type=="Importante"){
       elementTaskSpan.classList.add("span-important");
     }else{
-      elementTaskSpan.classList.add("span-urgent")
+      elementTaskSpan.classList.add("span-urgent");
     }
      return elementTaskLi;
 }
