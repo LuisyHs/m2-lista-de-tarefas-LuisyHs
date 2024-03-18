@@ -12,21 +12,22 @@ const tasks = [
 ];
 
 function renderElements(array){
-  const elementTaskUl = document.createElement("ul");
-  const listaLi;
-  const i;
-  for(i=0; i<array.length ; i++){
-    listaLi[i] = createTaskItem(array[i][0],array[i][0]);
-    elementTaskUl.appendChild(listaLi[i]);
+  
+  const elementTaskUl = document.getElementsByClassName("tasks__list");
+  elementTaskUl[0].innerHTML = ""; // evitar duplicar;
+  for(i = 0; i<array.length ; i++){
+    const teste = createTaskItem(array[i]);
+    console.log(teste);
+    elementTaskUl[0].appendChild(teste);
   }
 }
 
-function createTaskItem(title,type){
+function createTaskItem(objeto){
     const elementTaskLi = document.createElement("li");
     const elementTaskDiv = document.createElement("div");
     const elementTaskSpan = document.createElement("span");
     const elementTaskP = document.createElement("p");
-    elementTaskP.innerText = title; 
+    elementTaskP.innerText = objeto.title; 
     const elementTaskButton = document.createElement("button");
     
     elementTaskLi.appendChild(elementTaskDiv);
@@ -37,9 +38,9 @@ function createTaskItem(title,type){
     elementTaskLi.classList.add("task__item");
     elementTaskDiv.classList.add("task-info__container");
     elementTaskSpan.classList.add("task-type");
-    if(type=="Normal"){
+    if(objeto.type=="Normal"){
       elementTaskSpan.classList.add("span-normal")
-    }else if(type=="Importante"){
+    }else if(objeto.type=="Importante"){
       elementTaskSpan.classList.add("span-important");
     }else{
       elementTaskSpan.classList.add("span-urgent");
