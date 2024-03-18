@@ -45,7 +45,7 @@ function createTaskItem(objeto){
     }else{
       elementTaskSpan.classList.add("span-urgent");
     }
-    elementTaskButton.classList.add("")
+    elementTaskButton.classList.add("ask__button--remove-task");
 
      return elementTaskLi;
 }
