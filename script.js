@@ -47,3 +47,5 @@ function createTaskItem(title,type){
      return elementTaskLi;
 }
 
+
+renderElements(tasks);
