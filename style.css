@@ -150,7 +150,7 @@ margin-right: 10%;
 
 .task-type::before{
     content: "\2022";
-    font-size: 65px;
+    font-size: 30px;
     padding-left: 10px;
     padding-right: 10px;
 }

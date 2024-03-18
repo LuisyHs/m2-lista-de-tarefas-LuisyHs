@@ -1,5 +1,6 @@
 const tasks = [
   {title: "Comprar comida para o gato", type: "Urgente"},
+  /*
   {title: "Consertar Computador", type: "Importante"},
   {title: "Beber água", type: "Normal"},
   {title: "Enviar relatório trimestral", type: "Importante"},
@@ -9,6 +10,7 @@ const tasks = [
   {title: "Limpar a despensa", type: "Importante"},
   {title: "Pagar a conta de energia", type: "Urgente"},
   {title: "Assistir a um documentário interessante", type: "Normal"},
+  */
 ];
 
 function renderElements(array){
@@ -16,9 +18,7 @@ function renderElements(array){
   const elementTaskUl = document.getElementsByClassName("tasks__list");
   elementTaskUl[0].innerHTML = ""; // evitar duplicar;
   for(i = 0; i<array.length ; i++){
-    const teste = createTaskItem(array[i]);
-    console.log(teste);
-    elementTaskUl[0].appendChild(teste);
+    elementTaskUl[0].appendChild(createTaskItem(array[i]));
   }
 }
 
@@ -38,17 +38,29 @@ function createTaskItem(objeto){
     elementTaskLi.classList.add("task__item");
     elementTaskDiv.classList.add("task-info__container");
     elementTaskSpan.classList.add("task-type");
-    if(objeto.type=="Normal"){
+    if(objeto.type=="normal"){
       elementTaskSpan.classList.add("span-normal")
-    }else if(objeto.type=="Importante"){
+    }else if(objeto.type=="importante"){
       elementTaskSpan.classList.add("span-important");
     }else{
       elementTaskSpan.classList.add("span-urgent");
     }
-    elementTaskButton.classList.add("ask__button--remove-task");
+    elementTaskButton.classList.add("task__button--remove-task");
 
      return elementTaskLi;
 }
 
+const adicionarTarefaNaLista = document.querySelector(".form__button--add-task");
+adicionarTarefaNaLista.addEventListener('click', function(event){
+  event.preventDefault()
+  const tituloDaTarefaNova = document.getElementsByClassName("form__input--text");
+  const prioridadeDaTarefaNova = document.getElementsByClassName("form__input--priority");
+  const substituicao = tasks;
+  substituicao.push( {title: tituloDaTarefaNova[0].value, type: prioridadeDaTarefaNova[0].value});
+  console.log(prioridadeDaTarefaNova[0].value);
+  renderElements(substituicao);
+});
 
-renderElements(tasks);
+
+
+//renderElements(tasks);
