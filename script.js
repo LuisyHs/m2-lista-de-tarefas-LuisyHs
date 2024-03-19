@@ -1,6 +1,6 @@
 const tasks = [
-  {title: "Comprar comida para o gato", type: "Urgente"},
   /*
+  {title: "Comprar comida para o gato", type: "Urgente"},
   {title: "Consertar Computador", type: "Importante"},
   {title: "Beber água", type: "Normal"},
   {title: "Enviar relatório trimestral", type: "Importante"},
@@ -45,7 +45,17 @@ function createTaskItem(objeto){
     }else{
       elementTaskSpan.classList.add("span-urgent");
     }
+   
+    //criar verificacao se existe já o titulo com indexOf;
+    const indice = tasks.indexOf(objeto.title);
+    console.log(indice);
     elementTaskButton.classList.add("task__button--remove-task");
+    elementTaskButton.addEventListener('click',function(event){
+      event.preventDefault();
+      
+      tasks.splice(tasks.indexOf(indice),1);
+      renderElements(tasks);
+    })
 
      return elementTaskLi;
 }
@@ -55,12 +65,17 @@ adicionarTarefaNaLista.addEventListener('click', function(event){
   event.preventDefault()
   const tituloDaTarefaNova = document.getElementsByClassName("form__input--text");
   const prioridadeDaTarefaNova = document.getElementsByClassName("form__input--priority");
-  const substituicao = tasks;
-  substituicao.push( {title: tituloDaTarefaNova[0].value, type: prioridadeDaTarefaNova[0].value});
-  console.log(prioridadeDaTarefaNova[0].value);
-  renderElements(substituicao);
+  console.log(tasks.indexOf({title: tituloDaTarefaNova[0].value, type: prioridadeDaTarefaNova[0].value}));
+  console.log(tituloDaTarefaNova[0].value);
+  if((tasks.map(x => x.title).indexOf(tituloDaTarefaNova[0].value))>=0){
+    alert("A tarefa: " + '\"' + tituloDaTarefaNova[0].value + '\"' + " já está na sua lista de tarefas");
+    tituloDaTarefaNova[0].value = "";
+  }else{
+    tasks.push( {title: tituloDaTarefaNova[0].value, type: prioridadeDaTarefaNova[0].value});
+    tituloDaTarefaNova[0].value = "";
+    renderElements(tasks);
+  }
+    
 });
 
 
-
-//renderElements(tasks);
