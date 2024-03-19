@@ -46,14 +46,10 @@ function createTaskItem(objeto){
       elementTaskSpan.classList.add("span-urgent");
     }
    
-    //criar verificacao se existe já o titulo com indexOf;
-    const indice = tasks.indexOf(objeto.title);
-    console.log(indice);
     elementTaskButton.classList.add("task__button--remove-task");
     elementTaskButton.addEventListener('click',function(event){
       event.preventDefault();
-      
-      tasks.splice(tasks.indexOf(indice),1);
+      tasks.splice(tasks.map(x => x.title).indexOf(objeto.title),1);
       renderElements(tasks);
     })
 
@@ -65,8 +61,7 @@ adicionarTarefaNaLista.addEventListener('click', function(event){
   event.preventDefault()
   const tituloDaTarefaNova = document.getElementsByClassName("form__input--text");
   const prioridadeDaTarefaNova = document.getElementsByClassName("form__input--priority");
-  console.log(tasks.indexOf({title: tituloDaTarefaNova[0].value, type: prioridadeDaTarefaNova[0].value}));
-  console.log(tituloDaTarefaNova[0].value);
+  
   if((tasks.map(x => x.title).indexOf(tituloDaTarefaNova[0].value))>=0){
     alert("A tarefa: " + '\"' + tituloDaTarefaNova[0].value + '\"' + " já está na sua lista de tarefas");
     tituloDaTarefaNova[0].value = "";
@@ -75,7 +70,6 @@ adicionarTarefaNaLista.addEventListener('click', function(event){
     tituloDaTarefaNova[0].value = "";
     renderElements(tasks);
   }
-    
 });
 
 
